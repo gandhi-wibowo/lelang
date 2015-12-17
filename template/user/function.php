@@ -1,6 +1,7 @@
 <?php
+error_reporting(0);
 function koneksi(){
-	$koneksi = mysqli_connect("localhost","root","jakarta");
+	$koneksi = mysqli_connect("localhost","root","");
 	mysqli_select_db($koneksi,"cv_witra");
 	if(!$koneksi){
     die("could not connect ".mysqli_error($koneksi));

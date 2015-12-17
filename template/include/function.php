@@ -1,5 +1,6 @@
 <?php
 include "koneksi.php";
+error_reporting(0);
 con_db();
 function cek_not_kom($id_user){
     $query="SELECT * FROM notif_comentar WHERE id_user='$id_user' AND status='1';";

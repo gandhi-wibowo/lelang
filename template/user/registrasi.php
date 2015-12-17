@@ -73,7 +73,7 @@
                 $hold=$_POST['rekening-holder'];
                 $uname=$_POST['username'];
                 $pass=md5($_POST['passw']);
-                if(!empty(getUserId($uname))){
+                if(getUserId($uname)>0){
                     ?>
                     <div class="pad margin no-print">
                       <div class="callout callout-danger" style="margin-bottom: 0!important;">

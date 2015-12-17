@@ -14,8 +14,8 @@ $id_user_lelang=$_GET['id_user'];
 $query="UPDATE  `lelang` SET  `status_menang` =  '1' WHERE  `id_lelang` ='$id_lelang' AND `id_iklan`='$id_iklan';";
 $result=  mysql_query($query);
 if($result){
-    $query_pemenang = "INSERT INTO `daftar_pemenang` (`id_daftar_pemenang`, `id_user`, `id_iklan`, `tanggal`) 
-                                              VALUES (NULL, '$id_user_lelang', '$id_iklan', '$date');";
+    $query_pemenang = "INSERT INTO `daftar_pemenang` (`id_daftar_pemenang`, `id_user`,`id_admin`, `id_iklan`, `tanggal`) 
+                                              VALUES (NULL, '$id_user_lelang','$id_user', '$id_iklan', '$date');";
     mysql_query($query_pemenang);
     $quer="UPDATE `iklan` SET `status`='0' WHERE `id_iklan`='$id_iklan' AND `id_user`='$id_user'";
     mysql_query($quer);

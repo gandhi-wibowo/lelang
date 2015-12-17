@@ -13,5 +13,6 @@ include '../include/function.php';
 
 con_db();
 $id_user =$_SESSION['id_user'];
+$id_admin =$_SESSION['id_user'];
         
 ?>

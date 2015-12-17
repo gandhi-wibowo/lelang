@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION['status']=="login"){
     if($_SESSION['hak_akses']=="admin"){
         header("location:admin/");
