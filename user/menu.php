@@ -2,12 +2,12 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                  <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" rel="home" href="index.php" >
-                    <img style="max-width:90px; margin-top: -20px;" src="../include/img/witra.png">
-                </a>                
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button>
+                    <a class="navbar-brand" rel="home" href="index.php" >
+                        <img style="max-width:90px; margin-top: -20px;" src="../include/img/witra.png">
+                    </a>                
             </div>
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
@@ -28,7 +28,9 @@
                                       WHERE user.id_user=lelang.id_user
                                       AND lelang.id_iklan=iklan.id_iklan
                                       AND lelang.status_menang='1'
-                                      AND user.id_user='$id_user'";
+                                      AND user.id_user='$id_user'
+                                      ORDER BY lelang.id_lelang DESC
+                                        ";
                     $result_lelang=  mysql_query($query_lelang);
                     $jumlah_lelang=  mysql_num_rows($result_lelang);                  
                   ?>

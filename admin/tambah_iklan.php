@@ -27,16 +27,18 @@
                 $date = date("Y-m-d", $tgl);
                 $jam = date("His");
                 if(isset($_POST['submit'])){
-                    $target_dir = "../file/";   
+                    $target_dir = "../file/";  
+                    $lokasi_file = $_FILES['file_post']['tmp_name'];
                     $target_file = $target_dir . basename($_FILES["file_post"]["name"]);
                     $FileType = pathinfo($target_file,PATHINFO_EXTENSION);
                     $new_name =$id."_".date("Ymd",$tgl)."_".$jam.".".$FileType;
+                    $nama_filenya = $target_dir.$new_name;
                     if($FileType != "jpg" && $FileType != "png" && $FileType != "jpeg" && $FileType != "gif" && $FileType != "zip" && $FileType != "rar"){
                         echo "format file tidak di terima";
                         header("location:index.php");
                     }
                     else{
-                        if (move_uploaded_file($_FILES["file_post"]["tmp_name"], $target_dir.$new_name)) {
+                        if (move_uploaded_file($lokasi_file, $nama_filenya)) {
                             $judul = $_POST['judul_post'];
                             $isi   = $_POST['isi_post'];
                             $query = "INSERT INTO `iklan` (`id_iklan`, `id_user`, `tgl_iklan`, `file_iklan`, `judul_iklan`, `isi_iklan`, `status`)
@@ -60,7 +62,7 @@
                               </div>
                             </div>             
                             <?php
-                        }
+                        }                        
                     }         
                 }
                 ?>            

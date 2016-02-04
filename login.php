@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION['status']=="login"){
     if($_SESSION['hak_akses']=="admin"){
         header("location:admin/");
@@ -20,21 +21,14 @@ con_db();
     <title>Log In</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bootstrap/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
-    <link rel="stylesheet" href="plugins/morris/morris.css">
-    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">    
   </head>
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="">Log In</a>
+          <img style="max-width:350px; margin-top: -20px;" src="include/img/witra.png">
       </div><!-- /.login-logo -->
         <?php
         if(isset($_POST['submit'])){
@@ -98,23 +92,8 @@ con_db();
     </div><!-- /.login-box -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <script src="bootstrap/js/jquery-ui.min.js"></script>
-    <script> $.widget.bridge('uibutton', $.ui.button);</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/raphael-min.js"></script>
-    <script src="plugins/morris/morris.min.js"></script>
-    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="plugins/knob/jquery.knob.js"></script>
-    <script src="bootstrap/js/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.min.js"></script>
     <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/pages/dashboard.js"></script>
-    <script src="dist/js/demo.js"></script>
     
   </body>
 </html>

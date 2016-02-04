@@ -3,12 +3,12 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                  <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" rel="home" href="index.php" >
-                    <img style="max-width:90px; margin-top: -20px;" src="../include/img/witra.png">
-                </a>                
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button>
+                    <a class="navbar-brand" rel="home" href="index.php" >
+                        <img style="max-width:90px; margin-top: -20px;" src="../include/img/witra.png">
+                    </a>                
             </div>
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
@@ -45,6 +45,42 @@
             </div>
             <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
+                <?php
+                $jumlah_confirm = jumlah_confirm($id_user);
+                $result_confirm= query_confim($id_user);
+                ?>                
+                <li class="dropdown messages-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa  fa-download"></i>
+                    <span class="label label-success"><?php echo $jumlah_confirm; ?></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li class="header"> you have <?php echo $jumlah_confirm; ?> confirm</li>
+                    <li>
+                      <ul class="menu">
+                          <?php
+                            while ($row_confirm = mysql_fetch_array($result_confirm)) {
+                                $nama_confirm = $row_confirm['nama'];
+                                $id_confirm = $row_confirm['id_confirm'];
+                                $judul_iklan_confirm = $row_confirm['judul_iklan'];
+                                $row_confirm['nama_file'];                     
+                          ?>
+                        <li>
+                            <a href="download_confirm.php?id=<?php echo $id_confirm; ?>">
+                            <div class="pull-left">
+                              <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            </div>
+                                <h5><?php echo $nama_confirm; ?></h5>
+                                <p>Mengirim Konfirmasi FIle </p>
+                            </a>
+                        </li>
+                            <?php } ?>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                  
+                  
                 <?php
                 $jumlah_contrib = jumlah_contrib($id_user);
                 $result_contrib=  query_contrib($id_user);

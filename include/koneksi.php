@@ -2,7 +2,7 @@
 function con_db(){
   $host = "localhost";
   $db_user = "root";
-  $db_pwd = "jakarta";
+  $db_pwd = "";
   $db_name = "cv_witra";
   $con = mysql_connect($host,$db_user,$db_pwd);
   if($con){

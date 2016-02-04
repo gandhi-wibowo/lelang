@@ -23,10 +23,12 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-                <a href="../index.php" class="navbar-brand glyphicon glyphicon-home">  Home</a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
+                    <a class="navbar-brand" rel="home" href="../index.php" >
+                        <img style="max-width:90px; margin-top: -20px;" src="../include/img/witra.png">
+                    </a>                 
             </div>
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
@@ -73,7 +75,7 @@
                 $hold=$_POST['rekening-holder'];
                 $uname=$_POST['username'];
                 $pass=md5($_POST['passw']);
-                if(!empty(getUserId($uname))){
+                if(getUserId($uname)>0){
                     ?>
                     <div class="pad margin no-print">
                       <div class="callout callout-danger" style="margin-bottom: 0!important;">

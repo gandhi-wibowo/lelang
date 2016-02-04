@@ -5,6 +5,12 @@
         $id_iklan=$_GET['id'];
         $query = "SELECT * FROM  `iklan` WHERE id_iklan='$id_iklan'";
         $result = mysql_query($query);        
+        
+        
+        $query_pemenang = "SELECT * FROM daftar_pemenang WHERE id_user=$id_user AND id_iklan='$id_iklan'";
+        $res_pemenang = mysql_query($query_pemenang);
+        $ro_pemenang = mysql_fetch_array($res_pemenang);
+        
         include 'css.php';        
         ?>     
     </head>
@@ -19,6 +25,68 @@
           <section class="content-header">
             <h1></h1>
           </section>
+            <?php
+            if(isset($_POST['submit'])){
+                
+                        $target_dir = "../file/confirm/";  
+                        $lokasi_file = $_FILES['upload_confirm']['tmp_name'];
+                        $target_file = $target_dir . basename($_FILES["upload_confirm"]["name"]);
+                        $tipe_file = pathinfo($target_file,PATHINFO_EXTENSION);
+                        $nama_file   = $_FILES['upload_confirm']['name'];
+                        $nama_new= "$id_user-".date('dmYHis')."-$nama_file";
+                        $direktori   = "../file/confirm/$nama_new";
+                        if($tipe_file != "rar" && $tipe_file != "zip"){
+                            ?>
+                                  <div class="pad margin no-print">
+                                    <div class="callout callout-danger" style="margin-bottom: 0!important;">
+                                      <h4><i class="fa fa-info"></i>nfo :</h4>
+                                      Format FIle Tidak didukung !
+                                    </div>
+                                  </div>             
+                            <?php
+                        }
+                        else{
+                            if(move_uploaded_file($lokasi_file,$direktori)){
+                                // mau di input ke confirm lelang  <?php echo $ro_pemenang['id_daftar_pemenang']; 
+                                $id_daftar_pemenang = $ro_pemenang['id_daftar_pemenang'];
+                                $query_confirm = "INSERT INTO `cv_witra`.`confirm_lelang` 
+                                    (`id_confirm`, `id_daftar_pemenang`, `nama_file`, `status`)
+                                    VALUES (NULL, '$id_daftar_pemenang', '$nama_new', '0');";
+                                if(mysql_query($query_confirm)){
+                                    ?>
+                                        <div class="pad margin no-print">
+                                          <div class="callout callout-info" style="margin-bottom: 0!important;">
+                                            <h4><i class="fa fa-info"></i>nfo :</h4>
+                                            File Telah Terkirim !
+                                          </div>
+                                        </div>            
+                                    <?php                                    
+                                }
+                                else{
+                                    ?>
+                                        <div class="pad margin no-print">
+                                          <div class="callout callout-danger" style="margin-bottom: 0!important;">
+                                            <h4><i class="fa fa-info"></i>nfo :</h4>
+                                            File Gagal di upload !
+                                          </div>
+                                        </div>             
+                                    <?php
+                                }
+
+                                    }
+                                    else{
+                                        ?>
+                                            <div class="pad margin no-print">
+                                              <div class="callout callout-danger" style="margin-bottom: 0!important;">
+                                                <h4><i class="fa fa-info"></i>nfo :</h4>
+                                                File Gagal di upload !
+                                              </div>
+                                            </div>             
+                                        <?php
+                                    }                            
+                        }
+            }
+            ?>
 
           <section class="content">
               <div class="row">
@@ -58,8 +126,16 @@
                             ?>
                               <a href="#"><?php echo $nama['nama']; ?></a>
                             
-                          </span>
-                            <a href="#" class="glyphicon glyphicon-ok btn btn-md btn-success pull-right"> Selamat, Anda Adalah Pemenang Lelang Ini</a>
+			  </span>
+                            <label>
+                                Silahkan Upload Ulang FIle asli untuk Konfirmasi !<br>(File dalam bentuk .rar,.zip )<br>
+                            </label>
+                            <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                                <input type="file" name="upload_confirm" class="form-control">
+                                <input type="submit" name="submit" value="Kirim" class="glyphicon glyphicon-ok btn btn-md btn-success pull-right">
+
+                            </form>
+
                         </div><!-- /.comment-text -->
                       </div>
                     </div>

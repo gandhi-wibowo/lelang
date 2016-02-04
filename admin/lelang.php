@@ -58,12 +58,20 @@
                               <a href="detail_user.php?id=<?php echo $ro['id_user']; ?>"><?php echo $nama['nama']; ?></a>
                             
                           </span>
-                            <a href="../file/<?php echo $ro['nama_file']; ?>" class="glyphicon glyphicon-paperclip btn btn-md btn-info pull-left"> Download Lampiran </a>
+                            <label>Harga :</label>
+                            <input type="text" class="form-control" value="<?php echo $ro['harga'] ?>" disabled>
+                            <label>Note :</label>
+                            <textarea class="form-control" disabled style="width: 479px; height: 90px;"><?php echo $ro['ikhtisar']; ?></textarea>
+                            
+                            
+                            <br>
+                            
+                            <a href="download_lampiran.php?id_lelang=<?php echo $ro['id_lelang']; ?>" class="glyphicon glyphicon-paperclip btn btn-md btn-info pull-left"> Cetak Lampiran </a>
 
                             <a href="menangkan.php?id=<?php echo $ro['id_lelang']; ?>&id_iklan=<?php echo $ro['id_iklan']; ?>&id_user=<?php echo $ro['id_user'] ?>" class="glyphicon glyphicon-ok btn btn-md btn-success pull-right"> Menangkan</a>
                         </div><!-- /.comment-text -->
                       </div>
-                    </div>
+                    </div>              
                     
                     <?php } ?>
                     

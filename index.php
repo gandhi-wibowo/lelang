@@ -5,23 +5,16 @@ $query = "SELECT * FROM  `iklan`  WHERE status='1' ORDER BY tgl_iklan DESC";
 $result = mysql_query($query);  
 ?>
 <!DOCTYPE html>
-<html >
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bootstrap/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
-    <link rel="stylesheet" href="plugins/morris/morris.css">
-    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <style>
         .background{
             background: url('include/img/witra.png')no-repeat #ECF0F5;
@@ -29,17 +22,17 @@ $result = mysql_query($query);
             -moz-background-size: 85%;
             background-size: 85%;
         }
-    </style>
+    </style>    
   </head>
-  <body class="hold-transition skin-blue layout-top-nav" >
-      <div class="wrapper">
+  <body class="hold-transition skin-blue layout-top-nav">
+    <div class="wrapper">
       <header class="main-header">
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <i class="fa fa-bars"></i>
+              </button>
                     <a class="navbar-brand" rel="home" href="index.php" >
                         <img style="max-width:90px; margin-top: -20px;" src="include/img/witra.png">
                     </a>                
@@ -153,22 +146,7 @@ $result = mysql_query($query);
     </div>
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <script src="bootstrap/js/jquery-ui.min.js"></script>
-    <script> $.widget.bridge('uibutton', $.ui.button);</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/raphael-min.js"></script>
-    <script src="plugins/morris/morris.min.js"></script>
-    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="plugins/knob/jquery.knob.js"></script>
-    <script src="bootstrap/js/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.min.js"></script>
     <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/pages/dashboard.js"></script>
-    <script src="dist/js/demo.js"></script>
   </body>
 </html>

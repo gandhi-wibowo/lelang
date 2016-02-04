@@ -24,13 +24,15 @@
                 $con=koneksi();
                 $userId=$_POST['id_user'];
                 $iklanId=$_POST['id_iklan'];
+                $harga=$_POST['harga'];
+                $ikhtisar=$_POST['ikhtisar'];
                         $lokasi_file = $_FILES['karya']['tmp_name'];
                         $tipe_file   = $_FILES['karya']['type'];
                         $nama_file   = $_FILES['karya']['name'];
                         $nama_new= "$userId-".date('dmYHis')."-$nama_file";
                         $direktori   = "../file/$nama_new";
                   move_uploaded_file($lokasi_file,$direktori);
-                $insert="insert into lelang values('','$userId','$iklanId','$nama_new','0','1')";
+                $insert="insert into lelang values('','$userId','$iklanId','$harga','$ikhtisar','$nama_new','0','1')";
                 $query=mysqli_query($con,$insert);
                 if($query){
                 ?>
@@ -85,7 +87,16 @@
                                         <input type="hidden" name="id_iklan" value="<?php echo $iklanId; ?>">
                                         <input type="hidden" name="id_user" value="<?php echo $idUser; ?>"><br>                                        
                                     </div>
+                                    <label class="col-sm-2 control-label">Harga</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="harga" class="form-control"><br>                                  
+                                    </div>
+                                    <label class="col-sm-2 control-label">Ikhtisar</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="ikhtisar" class="form-control">                                        
+                                    </div>
                                   </div>
+
 
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
